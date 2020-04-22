@@ -23,7 +23,7 @@ class ApiManager {
     case home = "?json"
     case bands = "bands/all?json"
     case gigs = "gigs/all?json"
-    }
+  }
   
   func get<T:Decodable>(screen: Screen, _ callback: @escaping ((Result<T, Error>) -> Void)) {
     AF.request("\(baseUrl)\(screen.rawValue)").responseDecodable(of: T.self) { response in

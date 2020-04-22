@@ -11,7 +11,7 @@ import UIKit
 extension UIView {
   
   /// Using autolayout, constraint 0,0,0,0 to the parent view
-  func sizeToParent() {
+  func sizeToParent(left: CGFloat = 0, right: CGFloat = 0, top: CGFloat = 0, bottom: CGFloat = 0) {
     self.translatesAutoresizingMaskIntoConstraints = false
     
     guard let superView = superview else {
@@ -21,10 +21,15 @@ extension UIView {
     
     let guide = superView.safeAreaLayoutGuide
     
-    self.leftAnchor.constraint(equalTo: guide.leftAnchor).isActive = true
-    self.rightAnchor.constraint(equalTo: guide.rightAnchor).isActive = true
-    self.topAnchor.constraint(equalTo: guide.topAnchor).isActive = true
-    self.bottomAnchor.constraint(equalTo: guide.bottomAnchor).isActive = true
+    self.leftAnchor.constraint(equalTo: guide.leftAnchor, constant: left).isActive = true
+    self.rightAnchor.constraint(equalTo: guide.rightAnchor, constant: right).isActive = true
+    self.topAnchor.constraint(equalTo: guide.topAnchor, constant: top).isActive = true
+    self.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: bottom).isActive = true
+  }
+  
+  func setHeightConstraint(_ height: CGFloat) {
+    self.translatesAutoresizingMaskIntoConstraints = false
+    self.heightAnchor.constraint(equalToConstant: height).isActive = true
   }
   
 }

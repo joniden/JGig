@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
     stackView.sizeToParent()
     
     stackView.addArrangedSubview(gigView)
+    stackView.addArrangedSubview(UIView()) // Add empty view at the bottom
   }
   
   func populate(_ gig: GigModel) {

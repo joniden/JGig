@@ -17,6 +17,7 @@ class GigView: UIView {
   private let titleLabel = UILabel()
   private let subTitleLabel = UILabel()
   private let imageView = UIImageView()
+  private let tagView = TagListView()
   
   // MARK: - Life cycle
   
@@ -35,28 +36,51 @@ class GigView: UIView {
     self.backgroundColor = .none
     stackView.sizeToParent()
     stackView.axis = .vertical
+    stackView.spacing = 8
+    addImageView()
+    addTitleLabels()
+    addTagView()
     
+  }
+  
+  private func addImageView() {
     stackView.addArrangedSubview(imageView)
+  }
+  
+  private func addTitleLabels() {
     stackView.addArrangedSubview(titleLabel)
     stackView.addArrangedSubview(subTitleLabel)
+    titleLabel.setHeightConstraint(35)
+    subTitleLabel.setHeightConstraint(25)
     
     titleLabel.font = UIFont.systemFont(ofSize: 28, weight: .bold)
     subTitleLabel.font = UIFont.systemFont(ofSize: 17)
     subTitleLabel.textColor = .subTitle
-    
+  }
+  
+  private func addTagView() {
+    stackView.addArrangedSubview(tagView)
+    tagView.setHeightConstraint(25)
   }
   
   func populate(_ gig: GigModel) {
     if let image = gig.images?.first {
-      imageView.translatesAutoresizingMaskIntoConstraints = false
-      imageView.heightAnchor.constraint(equalToConstant: 214).isActive = true
+      imageView.setHeightConstraint(214)
       imageView.contentMode = .scaleAspectFill
+      imageView.clipsToBounds = true
       imageView.kf.setImage(with: URL(string: image.path))
     }
     
     titleLabel.text = gig.name
     subTitleLabel.text = "\(gig.venue?.name ?? ""), \(gig.fromDate ?? "")"
+    
+    guard let bands = gig.bands else {
+      return
+    }
+    
+    bands.forEach { band in
+      tagView.addTag(band.name)
+    }
   }
-  
   
 }
