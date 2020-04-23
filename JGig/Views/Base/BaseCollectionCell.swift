@@ -10,7 +10,7 @@ import UIKit
 
 class BaseCollectionCell: UICollectionViewCell {
   
-  static var identifier: String {
+  class var identifier: String {
     return String(describing: self)
   }
   

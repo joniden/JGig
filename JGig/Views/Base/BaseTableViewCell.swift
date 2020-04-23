@@ -1,5 +1,5 @@
 //
-//  ReusableCell.swift
+//  BaseTableViewCell.swift
 //  JGig
 //
 //  Created by Joacim Nidén on 2020-04-22.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class BaseCollectionCell: UICollectionViewCell {
-  
-  static var identifier: String {
+class BaseTableViewCell: UITableViewCell {
+
+  class var identifier: String {
     return String(describing: self)
   }
-  
+
 }

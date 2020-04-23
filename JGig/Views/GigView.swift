@@ -14,9 +14,9 @@ class GigView: UIView {
   // MARK: - Private Vars
   
   private let stackView = UIStackView()
+  private let imageView = UIImageView()
   private let titleLabel = UILabel()
   private let subTitleLabel = UILabel()
-  private let imageView = UIImageView()
   private let tagView = TagListView()
   
   // MARK: - Life cycle

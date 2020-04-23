@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TagCollectionViewCell: ReusableCell {
+class TagCollectionViewCell: BaseCollectionCell {
   
   class var font: UIFont {
     return UIFont.systemFont(ofSize: 14)

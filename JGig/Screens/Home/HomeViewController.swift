@@ -17,7 +17,6 @@ class HomeViewController: UIViewController {
     super.viewDidLoad()
     setup()
     presenter = HomePresenter(self)
-    title = "Last gig"
   }
   
   // MARK: - Private methods

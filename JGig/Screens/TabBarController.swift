@@ -12,6 +12,17 @@ class TabBarController: UITabBarController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.addChild(UINavigationController(rootViewController: HomeViewController()))
+    let home = HomeViewController()
+    home.title = "Last gig"
+    addVc(home)
+    
+    let gigs = GigsViewController()
+    gigs.title = "Gigs"
+    
+    addVc(gigs)
+  }
+  
+  private func addVc(_ vc: UIViewController) {
+    self.addChild(UINavigationController(rootViewController: vc))
   }
 }

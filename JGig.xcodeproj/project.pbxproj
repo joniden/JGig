@@ -18,7 +18,12 @@
 		857C0618244DA4D30076FC03 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C0617244DA4D30076FC03 /* TagListView.swift */; };
 		857C061C244DA9B20076FC03 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C061B244DA9B20076FC03 /* TagCollectionViewCell.swift */; };
 		857C061E2450276D0076FC03 /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C061D2450276D0076FC03 /* UICollectionView+Extensions.swift */; };
-		857C0623245029920076FC03 /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C0622245029920076FC03 /* ReusableCell.swift */; };
+		857C0623245029920076FC03 /* BaseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C0622245029920076FC03 /* BaseCollectionCell.swift */; };
+		857C062624507AF10076FC03 /* GigsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C062524507AF00076FC03 /* GigsViewController.swift */; };
+		857C062824507AFA0076FC03 /* GigsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C062724507AFA0076FC03 /* GigsPresenter.swift */; };
+		857C062A245089070076FC03 /* GigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C0629245089070076FC03 /* GigTableViewCell.swift */; };
+		857C062D245089540076FC03 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C062C245089540076FC03 /* BaseTableViewCell.swift */; };
+		857C062F2451CE0E0076FC03 /* GigRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C062E2451CE0E0076FC03 /* GigRow.swift */; };
 		85DA901B2448712300B02A35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DA901A2448712300B02A35 /* AppDelegate.swift */; };
 		85DA901D2448712300B02A35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DA901C2448712300B02A35 /* SceneDelegate.swift */; };
 		85DA90242448712400B02A35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85DA90232448712400B02A35 /* Assets.xcassets */; };
@@ -48,7 +53,12 @@
 		857C0617244DA4D30076FC03 /* TagListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
 		857C061B244DA9B20076FC03 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		857C061D2450276D0076FC03 /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
-		857C0622245029920076FC03 /* ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
+		857C0622245029920076FC03 /* BaseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionCell.swift; sourceTree = "<group>"; };
+		857C062524507AF00076FC03 /* GigsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigsViewController.swift; sourceTree = "<group>"; };
+		857C062724507AFA0076FC03 /* GigsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigsPresenter.swift; sourceTree = "<group>"; };
+		857C0629245089070076FC03 /* GigTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigTableViewCell.swift; sourceTree = "<group>"; };
+		857C062C245089540076FC03 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		857C062E2451CE0E0076FC03 /* GigRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigRow.swift; sourceTree = "<group>"; };
 		85DA90172448712300B02A35 /* JGig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JGig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85DA901A2448712300B02A35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85DA901C2448712300B02A35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				857C0607244C5FB70076FC03 /* TabBarController.swift */,
+				857C062424507AD00076FC03 /* Gigs */,
 				857C0604244C5F250076FC03 /* Home */,
 			);
 			path = Screens;
@@ -110,13 +121,33 @@
 		857C060E244CBFC80076FC03 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				857C062B245089410076FC03 /* Base */,
 				857C060F244CC06A0076FC03 /* GigView.swift */,
 				857C0615244CDCC20076FC03 /* BandLabel.swift */,
 				857C0617244DA4D30076FC03 /* TagListView.swift */,
 				857C061B244DA9B20076FC03 /* TagCollectionViewCell.swift */,
-				857C0622245029920076FC03 /* ReusableCell.swift */,
+				857C0629245089070076FC03 /* GigTableViewCell.swift */,
+				857C062E2451CE0E0076FC03 /* GigRow.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		857C062424507AD00076FC03 /* Gigs */ = {
+			isa = PBXGroup;
+			children = (
+				857C062524507AF00076FC03 /* GigsViewController.swift */,
+				857C062724507AFA0076FC03 /* GigsPresenter.swift */,
+			);
+			path = Gigs;
+			sourceTree = "<group>";
+		};
+		857C062B245089410076FC03 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				857C0622245029920076FC03 /* BaseCollectionCell.swift */,
+				857C062C245089540076FC03 /* BaseTableViewCell.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		85DA900E2448712300B02A35 = {
@@ -266,22 +297,27 @@
 				85DA9048244C2C5E00B02A35 /* BandsApiModel.swift in Sources */,
 				85DA9044244C2BE900B02A35 /* ImageModel.swift in Sources */,
 				857C061C244DA9B20076FC03 /* TagCollectionViewCell.swift in Sources */,
+				857C062D245089540076FC03 /* BaseTableViewCell.swift in Sources */,
+				857C062624507AF10076FC03 /* GigsViewController.swift in Sources */,
 				857C061E2450276D0076FC03 /* UICollectionView+Extensions.swift in Sources */,
 				857C060A244C61230076FC03 /* HomePresenter.swift in Sources */,
 				85DA903E244C292500B02A35 /* GigType.swift in Sources */,
 				85DA903C244C28CD00B02A35 /* GigModel.swift in Sources */,
-				857C0623245029920076FC03 /* ReusableCell.swift in Sources */,
+				857C0623245029920076FC03 /* BaseCollectionCell.swift in Sources */,
 				857C060D244C63C60076FC03 /* UIView+Extensions.swift in Sources */,
 				85DA9042244C2BCC00B02A35 /* VenueModel.swift in Sources */,
 				85DA9031244872D400B02A35 /* ApiManager.swift in Sources */,
 				857C0616244CDCC20076FC03 /* BandLabel.swift in Sources */,
 				85DA9046244C2C3800B02A35 /* GigsApiModel.swift in Sources */,
+				857C062A245089070076FC03 /* GigTableViewCell.swift in Sources */,
 				857C0610244CC06A0076FC03 /* GigView.swift in Sources */,
+				857C062F2451CE0E0076FC03 /* GigRow.swift in Sources */,
 				857C0614244CD5810076FC03 /* Constant.swift in Sources */,
 				85DA903A244B187200B02A35 /* HomeApiModel.swift in Sources */,
 				85DA901B2448712300B02A35 /* AppDelegate.swift in Sources */,
 				857C0618244DA4D30076FC03 /* TagListView.swift in Sources */,
 				857C0608244C5FB70076FC03 /* TabBarController.swift in Sources */,
+				857C062824507AFA0076FC03 /* GigsPresenter.swift in Sources */,
 				857C0606244C5F3B0076FC03 /* HomeViewController.swift in Sources */,
 				857C0612244CCE760076FC03 /* UIColor+Extensions.swift in Sources */,
 				85DA901D2448712300B02A35 /* SceneDelegate.swift in Sources */,
