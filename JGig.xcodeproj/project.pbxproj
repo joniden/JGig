@@ -23,7 +23,6 @@
 		857C062824507AFA0076FC03 /* GigsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C062724507AFA0076FC03 /* GigsPresenter.swift */; };
 		857C062A245089070076FC03 /* GigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C0629245089070076FC03 /* GigTableViewCell.swift */; };
 		857C062D245089540076FC03 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C062C245089540076FC03 /* BaseTableViewCell.swift */; };
-		857C062F2451CE0E0076FC03 /* GigRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C062E2451CE0E0076FC03 /* GigRow.swift */; };
 		85DA901B2448712300B02A35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DA901A2448712300B02A35 /* AppDelegate.swift */; };
 		85DA901D2448712300B02A35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DA901C2448712300B02A35 /* SceneDelegate.swift */; };
 		85DA90242448712400B02A35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85DA90232448712400B02A35 /* Assets.xcassets */; };
@@ -58,7 +57,6 @@
 		857C062724507AFA0076FC03 /* GigsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigsPresenter.swift; sourceTree = "<group>"; };
 		857C0629245089070076FC03 /* GigTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigTableViewCell.swift; sourceTree = "<group>"; };
 		857C062C245089540076FC03 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
-		857C062E2451CE0E0076FC03 /* GigRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigRow.swift; sourceTree = "<group>"; };
 		85DA90172448712300B02A35 /* JGig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JGig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85DA901A2448712300B02A35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85DA901C2448712300B02A35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,7 +125,6 @@
 				857C0617244DA4D30076FC03 /* TagListView.swift */,
 				857C061B244DA9B20076FC03 /* TagCollectionViewCell.swift */,
 				857C0629245089070076FC03 /* GigTableViewCell.swift */,
-				857C062E2451CE0E0076FC03 /* GigRow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -311,7 +308,6 @@
 				85DA9046244C2C3800B02A35 /* GigsApiModel.swift in Sources */,
 				857C062A245089070076FC03 /* GigTableViewCell.swift in Sources */,
 				857C0610244CC06A0076FC03 /* GigView.swift in Sources */,
-				857C062F2451CE0E0076FC03 /* GigRow.swift in Sources */,
 				857C0614244CD5810076FC03 /* Constant.swift in Sources */,
 				85DA903A244B187200B02A35 /* HomeApiModel.swift in Sources */,
 				85DA901B2448712300B02A35 /* AppDelegate.swift in Sources */,

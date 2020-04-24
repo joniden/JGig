@@ -12,7 +12,10 @@ extension UIView {
   
   /// Using autolayout, constraint 0,0,0,0 to the parent view
   func sizeToParent(left: CGFloat = 0, right: CGFloat = 0, top: CGFloat = 0, bottom: CGFloat = 0) {
-    self.translatesAutoresizingMaskIntoConstraints = false
+    
+    if self.translatesAutoresizingMaskIntoConstraints {
+      self.translatesAutoresizingMaskIntoConstraints = false
+    }
     
     guard let superView = superview else {
        print("superview required")
@@ -28,7 +31,9 @@ extension UIView {
   }
   
   func setHeightConstraint(_ height: CGFloat) {
-    self.translatesAutoresizingMaskIntoConstraints = false
+    if self.translatesAutoresizingMaskIntoConstraints {
+      self.translatesAutoresizingMaskIntoConstraints = false
+    }
     self.heightAnchor.constraint(equalToConstant: height).isActive = true
   }
   

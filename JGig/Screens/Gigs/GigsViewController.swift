@@ -31,7 +31,7 @@ class GigsViewController: UIViewController {
     tableView.delegate = self
     tableView.dataSource = self
     tableView.sizeToParent()
-    tableView.rowHeight = 72
+    tableView.rowHeight = 112
     
   }
   
