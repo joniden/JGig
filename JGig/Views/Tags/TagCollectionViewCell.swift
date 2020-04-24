@@ -38,7 +38,7 @@ class TagCollectionViewCell: BaseCollectionCell {
     self.addSubview(label)
     
     label.font = TagCollectionViewCell.font
-    label.sizeToParent(left: 5, right: 5, top: 5, bottom: 5)
+    label.sizeToParent()
     label.layer.cornerRadius = 5
   }
   

@@ -13,7 +13,7 @@ class GigTableViewCell: BaseTableViewCell {
   private let stackView = UIStackView()
   private let titleLabel = UILabel()
   private let subTitleLabel = UILabel()
-  private let tagView = TagListView()
+  private var tagView = TagListView()
   
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -22,6 +22,10 @@ class GigTableViewCell: BaseTableViewCell {
   
   required init?(coder: NSCoder) {
     super.init(coder: coder)
+  }
+  
+  override func prepareForReuse() {
+    tagView.tags = []
   }
   
   private func setup() {
@@ -46,7 +50,7 @@ class GigTableViewCell: BaseTableViewCell {
    
    private func addTagView() {
      stackView.addArrangedSubview(tagView)
-     tagView.setHeightConstraint(20)
+     tagView.setHeightConstraint(25)
    }
   
    func populate(_ gig: GigModel) {

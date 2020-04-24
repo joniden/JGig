@@ -10,13 +10,11 @@ import UIKit
 
 class TagListView: UIView {
   
-  var collectionView: UICollectionView?
+  var collectionView: TagCollectionView?
+  
+  var colors: [UIColor] = [.gigRed, .gigBlue, .gigGreen, .gigPurple, .gigPink, .gigYellow]
     
-  var tags: [String] = [] {
-    didSet {
-      collectionView?.reloadData()
-    }
-  }
+  var tags: [String] = []
   
   required init?(coder: NSCoder) {
     super.init(coder: coder)
@@ -35,17 +33,11 @@ class TagListView: UIView {
   
   private func setup() {
     // Set layout
-    
-    let flowLayout = UICollectionViewFlowLayout()
-    flowLayout.scrollDirection = .horizontal
-    flowLayout.itemSize = CGSize(width: 1, height: 20)
-    collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+    colors.shuffle()
+    collectionView = TagCollectionView(frame: .zero, collectionViewLayout: .init())
     self.translatesAutoresizingMaskIntoConstraints = false
     collectionView?.dataSource = self
     collectionView?.delegate = self
-    collectionView?.isScrollEnabled = false
-    collectionView?.backgroundColor = .clear
-    collectionView?.register(TagCollectionViewCell.self, forCellWithReuseIdentifier: TagCollectionViewCell.identifier)
   }
   
   private func addCollectionView() {
@@ -56,11 +48,12 @@ class TagListView: UIView {
     
     self.addSubview(collectionView)
     self.collectionView?.sizeToParent()
-   
+
   }
   
   func addTag(_ string: String) {
     tags.append(string)
+    collectionView?.reloadData()
   }
   
 }
@@ -78,6 +71,7 @@ extension TagListView: UICollectionViewDataSource {
     }
     
     cell.text = tags[indexPath.row]
+    cell.backgroundColor = colors[indexPath.row]
     
     return cell
     
@@ -94,7 +88,7 @@ extension TagListView: UICollectionViewDelegateFlowLayout {
       NSAttributedString.Key.font: TagCollectionViewCell.font
     ])
     
-    // It's not big enough
+    // Add some spacing
     let size = CGSize(width: itemSize.width + 20, height: itemSize.height)
    
     return size
