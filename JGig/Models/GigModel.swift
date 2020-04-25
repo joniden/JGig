@@ -23,4 +23,22 @@ struct GigModel: Codable {
     case fromDate = "from_date"
     case endDate = "end_date"
   }
+  
+  init(from decoder: Decoder) throws {
+    let values = try decoder.container(keyedBy: CodingKeys.self)
+    id = try values.decode(Int.self, forKey: .id)
+    name = try values.decode(String.self, forKey: .name)
+    type = try values.decode(GigType.self, forKey: .type)
+    bands = try values.decodeIfPresent([BandModel].self, forKey: .bands)
+    venue = try values.decodeIfPresent(VenueModel.self, forKey: .venue)
+    images = try values.decodeIfPresent([ImageModel].self, forKey: .images)
+    
+    // Format the dates
+    let fromDateString = try values.decodeIfPresent(String.self, forKey: .fromDate)
+    let endDateString = try values.decodeIfPresent(String.self, forKey: .endDate)
+    
+    fromDate = fromDateString.getFormattedDateString()
+    endDate = endDateString.getFormattedDateString()
+    
+  }
 }

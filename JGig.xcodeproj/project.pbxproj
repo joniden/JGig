@@ -23,6 +23,7 @@
 		857C062A245089070076FC03 /* GigTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C0629245089070076FC03 /* GigTableViewCell.swift */; };
 		857C062D245089540076FC03 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C062C245089540076FC03 /* BaseTableViewCell.swift */; };
 		857C06312452DCBA0076FC03 /* TagCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C06302452DCBA0076FC03 /* TagCollectionView.swift */; };
+		857C06342454346C0076FC03 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C06332454346C0076FC03 /* String+Extensions.swift */; };
 		85DA901B2448712300B02A35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DA901A2448712300B02A35 /* AppDelegate.swift */; };
 		85DA901D2448712300B02A35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DA901C2448712300B02A35 /* SceneDelegate.swift */; };
 		85DA90242448712400B02A35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85DA90232448712400B02A35 /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 		857C0629245089070076FC03 /* GigTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GigTableViewCell.swift; sourceTree = "<group>"; };
 		857C062C245089540076FC03 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		857C06302452DCBA0076FC03 /* TagCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionView.swift; sourceTree = "<group>"; };
+		857C06332454346C0076FC03 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		85DA90172448712300B02A35 /* JGig.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JGig.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85DA901A2448712300B02A35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85DA901C2448712300B02A35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				857C060C244C63C60076FC03 /* UIView+Extensions.swift */,
 				857C0611244CCE760076FC03 /* UIColor+Extensions.swift */,
+				857C06332454346C0076FC03 /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				857C060A244C61230076FC03 /* HomePresenter.swift in Sources */,
 				85DA903E244C292500B02A35 /* GigType.swift in Sources */,
 				85DA903C244C28CD00B02A35 /* GigModel.swift in Sources */,
+				857C06342454346C0076FC03 /* String+Extensions.swift in Sources */,
 				857C0623245029920076FC03 /* BaseCollectionCell.swift in Sources */,
 				857C060D244C63C60076FC03 /* UIView+Extensions.swift in Sources */,
 				85DA9042244C2BCC00B02A35 /* VenueModel.swift in Sources */,

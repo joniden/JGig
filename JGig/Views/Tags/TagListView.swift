@@ -35,7 +35,6 @@ class TagListView: UIView {
     // Set layout
     colors.shuffle()
     collectionView = TagCollectionView(frame: .zero, collectionViewLayout: .init())
-    self.translatesAutoresizingMaskIntoConstraints = false
     collectionView?.dataSource = self
     collectionView?.delegate = self
   }
@@ -48,7 +47,6 @@ class TagListView: UIView {
     
     self.addSubview(collectionView)
     self.collectionView?.sizeToParent()
-
   }
   
   func addTag(_ string: String) {
