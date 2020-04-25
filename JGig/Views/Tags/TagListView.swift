@@ -69,7 +69,7 @@ extension TagListView: UICollectionViewDataSource {
     }
     
     cell.text = tags[indexPath.row]
-    cell.backgroundColor = colors[indexPath.row]
+    cell.setColor(colors[indexPath.row])
     
     return cell
     

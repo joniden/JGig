@@ -39,7 +39,10 @@ class TagCollectionViewCell: BaseCollectionCell {
     
     label.font = TagCollectionViewCell.font
     label.sizeToParent()
-    label.layer.cornerRadius = 5
+  }
+  
+  func setColor(_ color: UIColor) {
+    label.setColor(color)
   }
   
 }

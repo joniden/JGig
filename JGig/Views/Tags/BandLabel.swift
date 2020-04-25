@@ -15,6 +15,8 @@ class BandLabel: UILabel {
   var leftInset: CGFloat = 8.0
   var rightInset: CGFloat = 8.0
   
+  // MARK: - Life cycle
+  
   required init?(coder: NSCoder) {
     super.init(coder: coder)
     setup()
@@ -25,10 +27,6 @@ class BandLabel: UILabel {
     setup()
   }
   
-  private func setup() {
-    self.textColor = .white
-  }
-
   override func drawText(in rect: CGRect) {
     let insets = UIEdgeInsets(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
     super.drawText(in: rect.inset(by: insets))
@@ -50,5 +48,20 @@ class BandLabel: UILabel {
     intrinsicSuperViewContentSize.height = ceil(newSize.size.height) + self.topInset + self.bottomInset
 
     return intrinsicSuperViewContentSize
+  }
+  
+  // MARK: - Private methods
+  
+  private func setup() {
+    self.textColor = .white
+    self.layer.cornerRadius = 6
+    self.layer.masksToBounds = true
+  }
+  
+  // MARK: - Public methods
+  
+  func setColor(_ color: UIColor) {
+    self.backgroundColor = .clear
+    self.layer.backgroundColor = color.cgColor
   }
 }
