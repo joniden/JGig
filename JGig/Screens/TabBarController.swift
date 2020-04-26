@@ -18,14 +18,18 @@ class TabBarController: UITabBarController {
     
     let gigs = GigsViewController()
     gigs.title = "Gigs"
-    
     addVc(gigs)
+    
+    let bands = BandsViewController()
+    bands.title = "Bands"
+    addVc(bands)
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     setTabBarIcon(index: 0, image: UIImage(systemName: "music.house"))
     setTabBarIcon(index: 1, image: UIImage(systemName: "music.mic"))
+    setTabBarIcon(index: 2, image: UIImage(systemName: "music.note.list"))
   }
   
   private func addVc(_ vc: UIViewController) {

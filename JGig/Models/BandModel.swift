@@ -14,3 +14,14 @@ struct BandModel: Codable {
     let name: String
     let gigs: [GigModel]?
 }
+
+extension Array where Element == BandModel {
+  func createAlphabeticalSection() -> [BandSectionModel] {
+    
+    let dict = Dictionary(grouping: self) { String($0.name.first!) }
+    
+    return dict.map {
+      BandSectionModel(letter: $0.key, rows: $0.value)
+    }    
+  }
+}

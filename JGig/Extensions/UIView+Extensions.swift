@@ -38,4 +38,12 @@ extension UIView {
     self.heightAnchor.constraint(equalToConstant: height).isActive = true
   }
   
+  func setWidthConstraint(_ width: CGFloat) {
+    if self.translatesAutoresizingMaskIntoConstraints {
+      self.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    self.widthAnchor.constraint(equalToConstant: width).isActive = true
+  }
+  
 }

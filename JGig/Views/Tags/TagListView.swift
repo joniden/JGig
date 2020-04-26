@@ -59,7 +59,7 @@ class TagListView: UIView {
   func addTag(_ string: String) {
     tags.append(string)
     
-    //collectionView?.reloadData()
+    collectionView?.reloadData()
   }
 }
 
