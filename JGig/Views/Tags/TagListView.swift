@@ -10,11 +10,14 @@ import UIKit
 
 class TagListView: UIView {
   
-  var collectionView: TagCollectionView?
+  // MARK: - Vars
   
+  var collectionView: TagCollectionView?
   var colors: [UIColor] = [.gigRed, .gigBlue, .gigGreen, .gigPurple, .gigPink, .gigYellow]
-    
   var tags: [String] = []
+  let maxTags = 3
+  
+  // MARK: - Life cycle
   
   required init?(coder: NSCoder) {
     super.init(coder: coder)
@@ -30,6 +33,8 @@ class TagListView: UIView {
     super.didMoveToSuperview()
     addCollectionView()
   }
+  
+  // MARK: - Private methods
   
   private func setup() {
     // Set layout
@@ -49,11 +54,13 @@ class TagListView: UIView {
     self.collectionView?.sizeToParent()
   }
   
+  // MARK: - Public Methods
+  
   func addTag(_ string: String) {
     tags.append(string)
-    collectionView?.reloadData()
+    
+    //collectionView?.reloadData()
   }
-  
 }
 
 extension TagListView: UICollectionViewDataSource {
@@ -66,6 +73,11 @@ extension TagListView: UICollectionViewDataSource {
     
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagCollectionViewCell.identifier, for: indexPath) as? TagCollectionViewCell else {
       return UICollectionViewCell()
+    }
+    
+    let cellRect = cell.contentView.convert(cell.contentView.bounds, to: UIScreen.main.coordinateSpace)
+    if UIScreen.main.bounds.intersects(cellRect) {
+       // return UICollectionViewCell()
     }
     
     cell.text = tags[indexPath.row]

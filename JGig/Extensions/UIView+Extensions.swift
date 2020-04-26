@@ -34,6 +34,7 @@ extension UIView {
     if self.translatesAutoresizingMaskIntoConstraints {
       self.translatesAutoresizingMaskIntoConstraints = false
     }
+    
     self.heightAnchor.constraint(equalToConstant: height).isActive = true
   }
   

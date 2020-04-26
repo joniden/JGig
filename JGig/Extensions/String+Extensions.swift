@@ -14,6 +14,8 @@ extension String {
 
 extension Optional where Wrapped == String {
   
+  /// This fixes the wrong format of the date that comes from the API
+  /// - Returns: Optional date string in format YYYY-MM-dd
   func getFormattedDateString() -> String? {
     let fromDateFormatter = DateFormatter()
     fromDateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
@@ -21,11 +23,10 @@ extension Optional where Wrapped == String {
     let toDateFormatter = DateFormatter()
     toDateFormatter.dateFormat = "YYYY-MM-dd"
     
-    if let string = self,
-      let date = fromDateFormatter.date(from: string) {
-      return toDateFormatter.string(from: date)
-    } else {
+    guard let string = self, let date = fromDateFormatter.date(from: string) else {
       return nil
     }
+    
+    return toDateFormatter.string(from: date)
   }
 }
