@@ -10,28 +10,39 @@ import UIKit
 
 class BandsViewController: UIViewController {
   
-  var bands: [BandModel] = [] {
+  // MARK: - Private vars
+
+  private let searchController  = UISearchController(searchResultsController: nil)
+  private var presenter: BandsPresenter?
+  private var tableView = UITableView()
+  private var unfilteredBandsSection: [BandSectionModel] = []
+  private var filteredBandsSection: [BandSectionModel] = []
+  
+  private var isFiltering = false
+  
+  private var bands: [BandModel] = [] {
     didSet {
-      bandsSection = bands.createAlphabeticalSection().sorted(by: { $0.letter.lowercased() < $1.letter.lowercased() })
+      unfilteredBandsSection = bands.createAlphabeticalSection()
       tableView.reloadData()
     }
   }
   
-  private var bandsSection: [BandSectionModel] = []
+  private var bandsSection: [BandSectionModel] {
+    return isFiltering ? filteredBandsSection : unfilteredBandsSection
+  }
   
-  var presenter: BandsPresenter?
-  var tableView = UITableView()
-
+  // MARK: - Life cycle
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
+
     self.presenter = BandsPresenter(self)
+    setupSearchController()
   }
   
-  func populate(_ bands: [BandModel]) {
-    self.bands = bands
-  }
-  
+  // MARK: - Private methods
+
   private func setup() {
     tableView.register(BandTableViewCell.self, forCellReuseIdentifier: BandTableViewCell.identifier)
     self.view.addSubview(tableView)
@@ -40,8 +51,28 @@ class BandsViewController: UIViewController {
     tableView.sizeToParent()
     tableView.rowHeight = 61
   }
+  
+  private func setupSearchController() {
+    self.definesPresentationContext = true
+    searchController.searchBar.placeholder = "Search..."
+    searchController.isActive = true
+    searchController.searchBar.delegate = self
+    searchController.delegate = self
+    searchController.obscuresBackgroundDuringPresentation = false
     
+    self.navigationItem.searchController = searchController
+    self.navigationItem.hidesSearchBarWhenScrolling = false
+  }
+  
+  // MARK: - Public methods
+  
+  func populate(_ bands: [BandModel]) {
+    self.bands = bands
+  }
+  
 }
+
+// MARK: - Extensions
 
 extension BandsViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -68,5 +99,31 @@ extension BandsViewController: UITableViewDataSource {
 }
 
 extension BandsViewController: UITableViewDelegate {
+  
+}
+
+extension BandsViewController: UISearchBarDelegate {
+  
+  func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+    
+  }
+  
+  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    isFiltering = searchText.count > 0
+    
+    if isFiltering {
+      filteredBandsSection = bands.search(searchText)
+    }
+    
+    tableView.reloadData()
+  }
+  
+  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+    isFiltering = false
+  }
+  
+}
+
+extension BandsViewController: UISearchControllerDelegate {
   
 }
