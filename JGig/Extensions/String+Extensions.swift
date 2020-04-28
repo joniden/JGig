@@ -9,7 +9,11 @@
 import Foundation
 
 extension String {
-
+  
+  func lowercaseContains(_ string: String) -> Bool {
+    return self.lowercased().contains(string.lowercased())
+  }
+  
 }
 
 extension Optional where Wrapped == String {

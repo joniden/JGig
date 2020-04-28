@@ -8,16 +8,24 @@
 
 import UIKit
 
-class GigsViewController: UIViewController {
+class GigsViewController: BaseViewController {
   
-  var gigs: [GigModel] = [] {
+  // MARK: - Private vars
+
+  private var presenter: GigsPresenter?
+  
+  private var unfilteredGigs: [GigModel] = [] {
     didSet {
       tableView.reloadData()
     }
   }
   
-  var presenter: GigsPresenter?
-  var tableView = UITableView()
+  private var filteredGigs: [GigModel] = []
+  private var gigs: [GigModel] {
+    return isFiltering ? filteredGigs : unfilteredGigs
+  }
+
+  // MARK: - Life cycle
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,18 +33,23 @@ class GigsViewController: UIViewController {
     presenter = GigsPresenter(self)
   }
   
+  // MARK: - Private methods
+  
   private func setup() {
-    tableView.register(GigTableViewCell.self, forCellReuseIdentifier: GigTableViewCell.identifier)
-    self.view.addSubview(tableView)
+    setupTableView(cell: GigTableViewCell.self, rowHeight: 112)
     tableView.delegate = self
     tableView.dataSource = self
-    tableView.sizeToParent()
-    tableView.rowHeight = 112
     
+    searchBarFilter = { text in
+      self.filteredGigs = self.unfilteredGigs.search(text)
+      
+    }
   }
   
+  // MARK: - Public methods
+  
   func populate(_ gigs: [GigModel]) {
-    self.gigs = gigs
+    self.unfilteredGigs = gigs
   }
     
 }

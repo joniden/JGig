@@ -8,17 +8,13 @@
 
 import UIKit
 
-class BandsViewController: UIViewController {
+class BandsViewController: BaseViewController {
   
   // MARK: - Private vars
 
-  private let searchController  = UISearchController(searchResultsController: nil)
   private var presenter: BandsPresenter?
-  private var tableView = UITableView()
   private var unfilteredBandsSection: [BandSectionModel] = []
   private var filteredBandsSection: [BandSectionModel] = []
-  
-  private var isFiltering = false
   
   private var bands: [BandModel] = [] {
     didSet {
@@ -36,32 +32,21 @@ class BandsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
-
     self.presenter = BandsPresenter(self)
-    setupSearchController()
   }
   
   // MARK: - Private methods
 
   private func setup() {
-    tableView.register(BandTableViewCell.self, forCellReuseIdentifier: BandTableViewCell.identifier)
-    self.view.addSubview(tableView)
+    
+    setupTableView(cell: BandTableViewCell.self, rowHeight: 61)
+    
     tableView.delegate = self
     tableView.dataSource = self
-    tableView.sizeToParent()
-    tableView.rowHeight = 61
-  }
-  
-  private func setupSearchController() {
-    self.definesPresentationContext = true
-    searchController.searchBar.placeholder = "Search..."
-    searchController.isActive = true
-    searchController.searchBar.delegate = self
-    searchController.delegate = self
-    searchController.obscuresBackgroundDuringPresentation = false
     
-    self.navigationItem.searchController = searchController
-    self.navigationItem.hidesSearchBarWhenScrolling = false
+    searchBarFilter = { text in
+      self.filteredBandsSection = self.bands.search(text)
+    }
   }
   
   // MARK: - Public methods
@@ -99,31 +84,5 @@ extension BandsViewController: UITableViewDataSource {
 }
 
 extension BandsViewController: UITableViewDelegate {
-  
-}
-
-extension BandsViewController: UISearchBarDelegate {
-  
-  func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-    
-  }
-  
-  func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    isFiltering = searchText.count > 0
-    
-    if isFiltering {
-      filteredBandsSection = bands.search(searchText)
-    }
-    
-    tableView.reloadData()
-  }
-  
-  func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-    isFiltering = false
-  }
-  
-}
-
-extension BandsViewController: UISearchControllerDelegate {
   
 }

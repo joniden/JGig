@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8526DA64245818F800703144 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8526DA63245818F800703144 /* BaseViewController.swift */; };
 		857C0606244C5F3B0076FC03 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C0605244C5F3B0076FC03 /* HomeViewController.swift */; };
 		857C0608244C5FB70076FC03 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C0607244C5FB70076FC03 /* TabBarController.swift */; };
 		857C060A244C61230076FC03 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857C0609244C61230076FC03 /* HomePresenter.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8526DA63245818F800703144 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		857C0605244C5F3B0076FC03 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		857C0607244C5FB70076FC03 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		857C0609244C61230076FC03 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			children = (
 				857C0622245029920076FC03 /* BaseCollectionCell.swift */,
 				857C062C245089540076FC03 /* BaseTableViewCell.swift */,
+				8526DA63245818F800703144 /* BaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				85DA9044244C2BE900B02A35 /* ImageModel.swift in Sources */,
 				857C061C244DA9B20076FC03 /* TagCollectionViewCell.swift in Sources */,
 				857C062D245089540076FC03 /* BaseTableViewCell.swift in Sources */,
+				8526DA64245818F800703144 /* BaseViewController.swift in Sources */,
 				857C062624507AF10076FC03 /* GigsViewController.swift in Sources */,
 				857C060A244C61230076FC03 /* HomePresenter.swift in Sources */,
 				857C063B2455A9B80076FC03 /* Array+Extensions.swift in Sources */,

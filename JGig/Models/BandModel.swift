@@ -33,7 +33,7 @@ extension Array where Element == BandModel {
   /// - Returns: BandSectionModels
   func search(_ string: String) -> [BandSectionModel] {
     let filtered = self.filter {
-      $0.name.lowercased().contains(string.lowercased())
+      $0.name.lowercaseContains(string)
     }
       
     return filtered.createAlphabeticalSection()

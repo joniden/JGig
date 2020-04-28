@@ -41,4 +41,17 @@ struct GigModel: Codable {
     endDate = endDateString.getFormattedDateString()
     
   }
+  
+}
+
+extension Array where Element == GigModel {
+  
+  /// Searches the Gigs
+  /// - Parameter string: search string
+  /// - Returns: BandSectionModels
+  func search(_ string: String) -> [GigModel] {
+    return self.filter {
+      $0.name.lowercaseContains(string)
+    }
+  }
 }
